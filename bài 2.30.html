@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-layer Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .menu {
+            background: black;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        .menu ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            background: white;
+            top: 100%;
+            left: 0;
+            padding: 10px;
+            list-style: none;
+        }
+        .dropdown:hover .submenu {
+            display: block;
+        }
+        .new-arrivals {
+            text-align: center;
+            padding: 20px;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product {
+            width: 150px;
+        }
+        .product img {
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Shop</a>
+                    <ul class="submenu">
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Buy Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="new-arrivals">
+        <h2>New Arrivals</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="https://golfgroup.com.vn/wp-content/uploads/2023/04/ao-coc-tay-nam-adidas-hf6616-xanh-da-troi-4-445x445.jpg" alt="T-Shirt">
+                <p>Broken T Shirt - $9</p>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQjn927U9-j4Q-5vsMWxg8rO8PH6ej4RYYeA&s" alt="Sweater">
+                <p>Knickerboxer - $25</p>
+            </div>
+            <div class="product">
+                <img src="data:image/jpeg;base64,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" alt="Belt">
+                <p>Studio Belt - $7</p>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRunHQ0959Zmdxu7KSWcZEyCKpadGiDbbjefg&s" alt="Shirt">
+                <p>Chambray Shirt - $29</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
